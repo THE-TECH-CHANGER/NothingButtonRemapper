@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="active_green">#3DDC84</color>
+    <color name="black">#000000</color>
+    <color name="border">#2A2A2A</color>
+    <color name="border_selected">#FFFFFF</color>
+    <color name="divider">#222222</color>
+    <color name="error_red">#E8372C</color>
+    <color name="label">#444444</color>
+    <color name="surface">#111111</color>
+    <color name="surface_card">#141414</color>
+    <color name="surface_card_selected">#1E1E1E</color>
+    <color name="switch_track">#2A2A2A</color>
+    <color name="text_secondary">#555555</color>
+    <color name="text_tertiary">#333333</color>
+    <color name="white">#FFFFFF</color>
+    <string name="accessibility_desc">Allows intercepting the Nothing Essential Button to remap it to custom actions.</string>
+    <string name="app_name">Essential Remapper</string>
+    <string name="channel_desc">Monitors the Essential Key in the background</string>
+    <string name="channel_name">Key Interceptor</string>
+    <string name="notif_text">Intercepting Essential Key presses</string>
+    <string name="notif_title">Essential Remapper Active</string>
+    <style name="Theme.NothingRemapper" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/surface</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="switchStyle">@style/Widget.Nothing.Switch</item>
+    </style>
+    <style name="Widget.Nothing.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="trackTint">@color/switch_track</item>
+        <item name="thumbTint">@color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/layout_activity_main.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/drawable_bg_main_card.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/drawable/bg_main_card.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/drawable_bg_status_chip.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/drawable/bg_status_chip.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-merged_res-34:/drawable_bg_action_card.xml.flat",
+        "source": "com.nothing.remapper.app-main-36:/drawable/bg_action_card.xml"
+    }
+]

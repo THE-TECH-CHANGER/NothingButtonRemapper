@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Essential Remapper</string>
+    <string name="channel_name">Key Interceptor</string>
+    <string name="channel_desc">Monitors the Essential Key in the background</string>
+    <string name="notif_title">Essential Remapper Active</string>
+    <string name="notif_text">Intercepting Essential Key presses</string>
+    <string name="accessibility_desc">Allows intercepting the Nothing Essential Button to remap it to custom actions.</string>
+</resources>
