@@ -70,5 +70,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Connect with Me
 
-Have feedback, questions, or just want to say hi? Connect with me on Instagram!  
-📸 **[@ft.sjhn](https://instagram.com/ft.sjhn)**
+Have feedback, questions, or just want to say hi? Connect with me!  
+📸 **Instagram:** [@ft.sjhn](https://instagram.com/ft.sjhn)  
+📧 **Email:** [sajhansakkir1@gmail.com](mailto:sajhansakkir1@gmail.com)
