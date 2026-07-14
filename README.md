@@ -31,8 +31,7 @@ Welcome to **Nothing Button Remapper**! This open-source app allows you to compl
 Because Nothing OS heavily guards the Essential Key, you need to disable the default system app that handles it. Don't worry, this only takes 1 minute and **does not require root or void your warranty**.
 
 ### Video Tutorial
-*(Tutorial Video Coming Soon)*
-<!-- Add your video link here like: [![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/hqdefault.jpg)](https://youtu.be/YOUR_VIDEO_ID) -->
+[![Watch the tutorial video](https://img.youtube.com/vi/KCODAyc_6rU/hqdefault.jpg)](https://youtu.be/KCODAyc_6rU)
 
 ### Written Guide (Using Termux / On-Device)
 You can do this entirely on your phone without a PC!
