@@ -61,3 +61,10 @@ cd NothingButtonRemapper
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Connect with Me
+
+Have feedback, questions, or just want to say hi? Connect with me on Instagram!  
+📸 **[@ft.sjhn](https://instagram.com/ft.sjhn)**
