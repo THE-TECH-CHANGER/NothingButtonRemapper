@@ -58,6 +58,10 @@ cd NothingButtonRemapper
 ./gradlew assembleDebug
 ```
 
+## 🚀 Future Plans
+
+I am actively working on future updates to make this tool feel even more like a native, built-in system app on Nothing OS! Stay tuned for more features.
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
