@@ -37,7 +37,7 @@ You can do this entirely on your phone without a PC!
 2. Download and install **Termux** from [F-Droid](https://f-droid.org/packages/com.termux/).
 3. Open the **Nothing Button Remapper** app and click **"Copy Command"**.
 4. Open **Termux** and install the ADB tools by typing: `pkg install android-tools`
-5. Enable **Wireless Debugging** in your phone's Developer Options and pair it with Termux using `adb pair localhost:port`. If you've never done this, watch this quick tutorial: <br> [![Wireless Debugging Tutorial](https://img.youtube.com/vi/KCODAyc_6rU/hqdefault.jpg)](https://youtu.be/KCODAyc_6rU)
+5. Enable **Wireless Debugging** in your phone's Developer Options and pair it with Termux using `adb pair localhost:port`. If you've never done this, watch this quick tutorial: **"Wireless Debugging with Termux"** <br> [![Wireless Debugging with Termux](https://img.youtube.com/vi/KCODAyc_6rU/hqdefault.jpg)](https://youtu.be/KCODAyc_6rU)
 6. Paste the copied command into Termux and press enter:
    ```bash
    adb shell pm disable-user --user 0 com.nothing.ntessentialspace && adb shell pm disable-user --user 0 com.nothing.ntessentialrecorder
