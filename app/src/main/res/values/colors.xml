@@ -4,16 +4,17 @@
     <color name="surface">#111111</color>
     <color name="surface_card">#141414</color>
     <color name="surface_card_selected">#1E1E1E</color>
-    <color name="divider">#222222</color>
-    <color name="border">#2A2A2A</color>
-    <color name="border_selected">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="text_secondary">#555555</color>
-    <color name="text_tertiary">#333333</color>
-    <color name="label">#444444</color>
-    <color name="active_green">#3DDC84</color>
-    <color name="error_red">#E8372C</color>
-    <color name="switch_track">#2A2A2A</color>
+    <color name="card_bg">#181818</color>
+    <color name="card_stroke">#333333</color>
+    <color name="text_primary">#EAEAEA</color>
+    <color name="text_secondary">#888888</color>
+    <color name="label">#666666</color>
+    <color name="active_green">#00C853</color>
+    <color name="error_red">#FF3B30</color>
+    <color name="status_red">#FF0000</color>
+    <color name="divider">#2A2A2A</color>
 
     <!-- Shizuku / Setup -->
     <color name="shizuku_accent">#7B68EE</color>
