@@ -158,8 +158,17 @@ class MainActivity : AppCompatActivity() {
 
         // Shizuku Onboarding Buttons
         btnStep1.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api"))
-            startActivity(intent)
+            AlertDialog.Builder(this)
+                .setTitle("Download Shizuku")
+                .setItems(arrayOf("Google Play Store", "GitHub Releases")) { _, which ->
+                    val url = if (which == 0) {
+                        "https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api"
+                    } else {
+                        "https://github.com/RikkaApps/Shizuku/releases"
+                    }
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+                }
+                .show()
         }
         
         btnStep2.setOnClickListener {
