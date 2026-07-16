@@ -49,7 +49,7 @@
                     android:text="Remapper"
                     android:textSize="28sp"
                     android:textColor="@color/white"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="sans-serif-black"
                     android:layout_marginTop="-6dp" />
             </LinearLayout>
         </LinearLayout>
@@ -73,41 +73,12 @@
             android:paddingHorizontal="24dp"
             android:paddingBottom="16dp">
 
-            <!-- Root Status -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_status_chip"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ACCESSIBILITY"
-                    android:textSize="9sp"
-                    android:textColor="@color/label"
-                    android:letterSpacing="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_root_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Checking..."
-                    android:textSize="14sp"
-                    android:textColor="#888888"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-
             <!-- Service Status -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/bg_status_chip"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -128,76 +99,234 @@
                     android:text="Inactive"
                     android:textSize="14sp"
                     android:textColor="@color/text_secondary"
-                    android:fontFamily="sans-serif-medium" />
+                    android:fontFamily="sans-serif-black" />
+            </LinearLayout>
+
+            <!-- Shizuku Status -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_status_chip"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHIZUKU"
+                    android:textSize="9sp"
+                    android:textColor="@color/label"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/tv_shizuku_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Checking..."
+                    android:textSize="14sp"
+                    android:textColor="#888888"
+                    android:fontFamily="sans-serif-black" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ── TERMUX SETUP GUIDE ─────────────────────────────────────── -->
+        <!-- ── SHIZUKU SETUP GUIDE (3 STEPS) ──────────────────────────── -->
         <LinearLayout
-            android:id="@+id/card_termux_setup"
+            android:id="@+id/card_shizuku_setup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/bg_main_card"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            android:visibility="visible">
 
             <TextView
+                android:id="@+id/tv_setup_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Initial Setup Required"
-                android:textSize="16sp"
+                android:text="@string/setup_title"
+                android:textSize="18sp"
                 android:textColor="@color/white"
-                android:fontFamily="sans-serif-medium" />
+                android:fontFamily="sans-serif-black" />
 
             <TextView
+                android:id="@+id/tv_setup_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="To allow this app to capture the button, you must disable Nothing's default handler using Termux (or a PC via ADB)."
+                android:layout_marginTop="4dp"
+                android:text="@string/setup_subtitle"
                 android:textSize="12sp"
-                android:lineSpacingMultiplier="1.2"
                 android:textColor="@color/text_secondary" />
 
+            <!-- Step 1 -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                
                 <TextView
-                    android:id="@+id/btn_download_termux"
+                    android:id="@+id/indicator_step1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_step_indicator"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-black" />
+
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_status_chip"
-                    android:gravity="center"
-                    android:paddingVertical="12dp"
-                    android:layout_marginEnd="6dp"
-                    android:text="Get Termux"
-                    android:textColor="@color/white"
-                    android:textSize="13sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:clickable="true"
-                    android:focusable="true"/>
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step1_title"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step1_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/btn_copy_command"
-                    android:layout_width="0dp"
+                    android:id="@+id/btn_step1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_status_chip"
-                    android:gravity="center"
-                    android:paddingVertical="12dp"
-                    android:layout_marginStart="6dp"
-                    android:text="Copy Command"
+                    android:background="@drawable/bg_shizuku_button"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/step1_button"
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:fontFamily="sans-serif-medium"
                     android:clickable="true"
                     android:focusable="true"/>
             </LinearLayout>
+
+            <!-- Step 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                
+                <TextView
+                    android:id="@+id/indicator_step2"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_step_indicator"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step2_title"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step2_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_step2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_shizuku_button"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/step2_button"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <!-- Step 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                
+                <TextView
+                    android:id="@+id/indicator_step3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_step_indicator"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step3_title"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/step3_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_step3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_shizuku_button"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/step3_button"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <!-- ── MAIN ENABLE TOGGLE ─────────────────────────────────────── -->
@@ -222,13 +351,13 @@
                     android:text="Enable Remapping"
                     android:textSize="16sp"
                     android:textColor="@color/white"
-                    android:fontFamily="sans-serif-medium" />
+                    android:fontFamily="sans-serif-black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="Override Nothing Essential Space"
+                    android:text="Must enable Accessibility Service"
                     android:textSize="12sp"
                     android:textColor="@color/text_secondary" />
             </LinearLayout>
@@ -239,31 +368,31 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!-- ── SECTION LABEL: BUTTON ACTION ──────────────────────────── -->
+        <!-- ── SECTION LABEL: GESTURE ACTIONS ──────────────────────────── -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="24dp"
             android:paddingTop="28dp"
             android:paddingBottom="12dp"
-            android:text="BUTTON ACTION"
+            android:text="@string/gesture_section_label"
             android:textSize="10sp"
             android:textColor="@color/label"
             android:letterSpacing="0.15" />
 
-        <!-- ── ACTION CARDS ───────────────────────────────────────────── -->
+        <!-- ── GESTURE CARDS ───────────────────────────────────────────── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="24dp">
 
-            <!-- FLASHLIGHT -->
+            <!-- SINGLE PRESS -->
             <LinearLayout
-                android:id="@+id/card_flashlight"
+                android:id="@+id/card_single_press"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
+                android:background="@drawable/bg_gesture_card"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginBottom="8dp"
@@ -280,17 +409,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Flashlight"
+                        android:text="@string/gesture_single_press"
                         android:textSize="15sp"
                         android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
+                        android:fontFamily="sans-serif-black" />
 
                     <TextView
+                        android:id="@+id/tv_action_single"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Toggle the torch on and off"
-                        android:textSize="12sp"
+                        android:text="@string/action_flashlight"
+                        android:textSize="13sp"
                         android:textColor="@color/text_secondary" />
                 </LinearLayout>
 
@@ -298,16 +428,16 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:gravity="center"
-                    android:text="⚡"
+                    android:text="1️⃣"
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <!-- CAMERA -->
+            <!-- DOUBLE PRESS -->
             <LinearLayout
-                android:id="@+id/card_camera"
+                android:id="@+id/card_double_press"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
+                android:background="@drawable/bg_gesture_card"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginBottom="8dp"
@@ -324,17 +454,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Camera"
+                        android:text="@string/gesture_double_press"
                         android:textSize="15sp"
                         android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
+                        android:fontFamily="sans-serif-black" />
 
                     <TextView
+                        android:id="@+id/tv_action_double"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Launch camera instantly"
-                        android:textSize="12sp"
+                        android:text="@string/action_camera"
+                        android:textSize="13sp"
                         android:textColor="@color/text_secondary" />
                 </LinearLayout>
 
@@ -342,16 +473,16 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:gravity="center"
-                    android:text="📷"
+                    android:text="2️⃣"
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <!-- SCREENSHOT -->
+            <!-- TRIPLE PRESS -->
             <LinearLayout
-                android:id="@+id/card_screenshot"
+                android:id="@+id/card_triple_press"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
+                android:background="@drawable/bg_gesture_card"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginBottom="8dp"
@@ -368,17 +499,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Screenshot"
+                        android:text="@string/gesture_triple_press"
                         android:textSize="15sp"
                         android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
+                        android:fontFamily="sans-serif-black" />
 
                     <TextView
+                        android:id="@+id/tv_action_triple"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Capture the screen with one press"
-                        android:textSize="12sp"
+                        android:text="@string/action_screenshot"
+                        android:textSize="13sp"
                         android:textColor="@color/text_secondary" />
                 </LinearLayout>
 
@@ -386,16 +518,16 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:gravity="center"
-                    android:text="📸"
+                    android:text="3️⃣"
                     android:textSize="20sp" />
             </LinearLayout>
 
-            <!-- CYCLE RINGER -->
+            <!-- LONG PRESS -->
             <LinearLayout
-                android:id="@+id/card_cycle_ringer"
+                android:id="@+id/card_long_press"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
+                android:background="@drawable/bg_gesture_card"
                 android:orientation="horizontal"
                 android:padding="16dp"
                 android:layout_marginBottom="8dp"
@@ -412,17 +544,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cycle Ringer Mode"
+                        android:text="@string/gesture_long_press"
                         android:textSize="15sp"
                         android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
+                        android:fontFamily="sans-serif-black" />
 
                     <TextView
+                        android:id="@+id/tv_action_long"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Switch between Normal, Vibrate, and Silent"
-                        android:textSize="12sp"
+                        android:text="@string/action_cycle_ringer"
+                        android:textSize="13sp"
                         android:textColor="@color/text_secondary" />
                 </LinearLayout>
 
@@ -430,139 +563,7 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:gravity="center"
-                    android:text="🔄"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- CALL -->
-            <LinearLayout
-                android:id="@+id/card_call"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Phone Dialer"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Open the phone dialer instantly"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="📞"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- DISABLE BUTTON -->
-            <LinearLayout
-                android:id="@+id/card_nothing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Disable Button"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Key press does absolutely nothing"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="🔕"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- RESTORE DEFAULT -->
-            <LinearLayout
-                android:id="@+id/card_default"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_action_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Restore Default"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-medium" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Re-enable Nothing Essential Space"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="↩️"
+                    android:text="⏱️"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -603,7 +604,7 @@
                     android:text="Haptic Feedback"
                     android:textSize="15sp"
                     android:textColor="@color/white"
-                    android:fontFamily="sans-serif-medium" />
+                    android:fontFamily="sans-serif-black" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -620,18 +621,44 @@
                 android:layout_height="wrap_content"
                 android:checked="true" />
         </LinearLayout>
-
-
-
-        <!-- ── FOOTER INFO ────────────────────────────────────────────── -->
-        <TextView
+        
+        <!-- Restore default button -->
+        <LinearLayout
+            android:id="@+id/btn_restore_default"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="Requires ADB command to disable 'com.nothing.ntessentialspace' first. The background service intercepts key events via Android Accessibility APIs."
-            android:textSize="11sp"
-            android:textColor="@color/text_tertiary"
-            android:lineSpacingMultiplier="1.6" />
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_main_card"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restore System Default"
+                    android:textSize="15sp"
+                    android:textColor="@color/error_red"
+                    android:fontFamily="sans-serif-black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Re-enable Nothing Essential apps via Shizuku"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+        </LinearLayout>
 
         <!-- Bottom safe area -->
         <View android:layout_width="match_parent" android:layout_height="32dp" />

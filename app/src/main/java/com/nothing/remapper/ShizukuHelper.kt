@@ -80,7 +80,11 @@ object ShizukuHelper {
     suspend fun executeCommand(command: String): Result<String> = withContext(Dispatchers.IO) {
         try {
             val parts = command.split(" ").filter { it.isNotEmpty() }.toTypedArray()
-            val process = Shizuku.newProcess(parts, null, null)
+            
+            // newProcess might be hidden or package-private in this API version
+            val newProcessMethod = Shizuku::class.java.getDeclaredMethod("newProcess", Array<String>::class.java, Array<String>::class.java, String::class.java)
+            newProcessMethod.isAccessible = true
+            val process = newProcessMethod.invoke(null, parts, null, null) as Process
 
             val stdout = BufferedReader(InputStreamReader(process.inputStream)).readText()
             val stderr = BufferedReader(InputStreamReader(process.errorStream)).readText()

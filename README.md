@@ -13,38 +13,33 @@
 
 <br>
 
-Welcome to **Nothing Button Remapper**! This open-source app allows you to completely customize the "Essential Key" (or any hardware button mapped to keycode `0`) on Nothing OS, completely bypassing the default behavior.
+Welcome to **Nothing Button Remapper V2**! This open-source app allows you to completely customize the "Essential Key" (or any hardware button mapped to keycode `0`) on Nothing OS, completely bypassing the default behavior.
 
-## ✨ Features
+## ✨ Features (New in V2!)
 
-- **No Root Required!** Uses Android's built-in Accessibility Service.
-- **Cycle Ringer Mode:** Instantly cycle between Normal ➡️ Vibrate ➡️ Silent modes with a single click.
-- **Flashlight Toggle:** Turn your torch on and off without looking at your screen.
-- **Quick Camera:** Launch your camera instantly.
-- **Quick Screenshot:** Take screenshots on the fly.
-- **Clean UI:** Built with Nothing's signature dot-matrix aesthetic in mind.
+- **No Root Required!** Uses Android's built-in Accessibility Service + **Shizuku**.
+- **Multi-Gesture Engine:** Assign different actions to Single Press, Double Press, Triple Press, and Long Press.
+- **Context-Aware Camera Shutter:** The button acts as a shutter when your camera app is open!
+- **Cycle Ringer Mode:** Instantly cycle between Normal ➡️ Vibrate ➡️ Silent modes.
+- **Flashlight, Camera, Screenshot:** Quick access to essential utilities.
+- **In-App Onboarding:** No more PC or Termux needed! Everything is done inside the app via Shizuku.
+- **Nothing OS Aesthetic:** Designed with the signature dot-matrix and monochrome feel.
 
 ---
 
 ## 🚀 Installation & Setup Tutorial
 
-Because Nothing OS heavily guards the Essential Key, you need to disable the default system app that handles it. Don't worry, this only takes 1 minute and **does not require root or void your warranty**.
+Because Nothing OS heavily guards the Essential Key, you need to disable the default system app that handles it. This takes 1 minute and **does not require root or void your warranty**.
 
-### Written Guide (Using Termux / On-Device)
-You can do this entirely on your phone without a PC!
-
-1. Download the latest `NothingButtonRemapper-v1.0.apk` from the [Releases](https://github.com/THE-TECH-CHANGER/NothingButtonRemapper/releases) page and install it.
-2. Download and install **Termux** from [F-Droid](https://f-droid.org/packages/com.termux/).
-3. Open the **Nothing Button Remapper** app and click **"Copy Command"**.
-4. Open **Termux** and install the ADB tools by typing: `pkg install android-tools`
-5. Enable **Wireless Debugging** in your phone's Developer Options and pair it with Termux using `adb pair localhost:port`. If you've never done this, watch this quick tutorial: **"Wireless Debugging with Termux"** <br> [![Wireless Debugging with Termux](https://img.youtube.com/vi/KCODAyc_6rU/hqdefault.jpg)](https://youtu.be/KCODAyc_6rU)
-6. Paste the copied command into Termux and press enter:
-   ```bash
-   adb shell pm disable-user --user 0 com.nothing.ntessentialspace && adb shell pm disable-user --user 0 com.nothing.ntessentialrecorder
-   ```
-6. Open the **Settings** app on your phone.
-7. Go to **Accessibility** -> **Nothing Button Remapper** and turn it **ON**.
-8. Open the app, select your action (e.g., Cycle Ringer Mode), and you're done!
+### Quick Setup (Directly in the App)
+1. Download the latest `NothingButtonRemapper-v2.0.apk` from the [Releases](https://github.com/THE-TECH-CHANGER/NothingButtonRemapper/releases) page and install it.
+2. Open the **Nothing Button Remapper** app.
+3. Follow the 3-step setup guide on the home screen:
+   - **Step 1:** Download and install [Shizuku](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
+   - **Step 2:** Start Shizuku (using Wireless Debugging or root).
+   - **Step 3:** Tap **Run** in the app to disable Nothing's default button handler.
+4. Turn on the main **Enable Remapping** switch (this will prompt you to enable the Accessibility Service).
+5. Customize your gestures (Single Press, Double Press, etc.) and you're done!
 
 ---
 

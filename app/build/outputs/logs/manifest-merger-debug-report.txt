@@ -1,9 +1,24 @@
 -- Merging decision tree log ---
+provider#rikka.shizuku.ShizukuProvider
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:44:9-50:82
+	android:enabled
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:48:13-35
+	android:authorities
+		INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:46:13-59
+	android:multiprocess
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:47:13-41
+	android:exported
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:49:13-36
+	android:permission
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:50:13-79
+	android:name
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:45:13-57
 manifest
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-53:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5c32f15271083e6f47ec898cc5874a1e\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c10d832d7c907efcac279b5255435dc9\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -37,8 +52,11 @@ MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\sajha\.gra
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\8f8dd1e05169fcdf40ced285e60c0550\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\19caa883a3e96c2cf7cba55d0d8ab24f\transformed\jetified-core-ktx-1.12.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\792bbe358037eedabbd31369ad9aa648\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
+MERGED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:2:1-16:12
+MERGED from [dev.rikka.shizuku:api:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\25437e8e9461a687325619e62a89a90f\transformed\jetified-api-13.1.5\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\43e60e8e26ca194f9576aa39a1ef8d36\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bf82eda9c92ce61cbe77013e39d2f052\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [dev.rikka.shizuku:shared:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bd2008aba6841fffb2f634b9e8a8dff5\transformed\jetified-shared-13.1.5\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\3c3f59c855a33b23d7fcc7cafc2a35c6\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\7188455548d25b9b6ba005da80e7cb2a\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:17:1-55:12
@@ -48,6 +66,7 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\sajha\.gradle\cache
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\4b5e81a461fbaf07aecbaf22bcedb3da\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ffa00a37f2b813e51fd3f04a05fe2e5c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\361330bf2d5a22ed9171b91e68032276\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\b82b79c34e2466c989ed1df83ce3e08b\transformed\jetified-aidl-13.1.5\AndroidManifest.xml:2:1-7:12
 	package
 		INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -85,8 +104,8 @@ ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\An
 	android:name
 		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:11:22-82
 application
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-44:19
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-44:19
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-52:19
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-52:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5c32f15271083e6f47ec898cc5874a1e\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -97,6 +116,8 @@ MERGED from [androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\tran
 MERGED from [androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:28:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:10:5-14:19
+MERGED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:10:5-14:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\7188455548d25b9b6ba005da80e7cb2a\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\7188455548d25b9b6ba005da80e7cb2a\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:23:5-53:19
@@ -111,6 +132,8 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\sajha\.gradle\cach
 		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
 		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:16:9-41
+	tools:ignore
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:10:18-69
 	android:roundIcon
 		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:17:9-54
 	android:icon
@@ -229,10 +252,16 @@ MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\
 MERGED from [androidx.core:core-ktx:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\19caa883a3e96c2cf7cba55d0d8ab24f\transformed\jetified-core-ktx-1.12.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\792bbe358037eedabbd31369ad9aa648\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\792bbe358037eedabbd31369ad9aa648\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:6:5-44
+MERGED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:6:5-44
+MERGED from [dev.rikka.shizuku:api:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\25437e8e9461a687325619e62a89a90f\transformed\jetified-api-13.1.5\AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:api:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\25437e8e9461a687325619e62a89a90f\transformed\jetified-api-13.1.5\AndroidManifest.xml:5:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\43e60e8e26ca194f9576aa39a1ef8d36\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\43e60e8e26ca194f9576aa39a1ef8d36\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bf82eda9c92ce61cbe77013e39d2f052\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bf82eda9c92ce61cbe77013e39d2f052\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [dev.rikka.shizuku:shared:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bd2008aba6841fffb2f634b9e8a8dff5\transformed\jetified-shared-13.1.5\AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:shared:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\bd2008aba6841fffb2f634b9e8a8dff5\transformed\jetified-shared-13.1.5\AndroidManifest.xml:5:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\3c3f59c855a33b23d7fcc7cafc2a35c6\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\3c3f59c855a33b23d7fcc7cafc2a35c6\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\7188455548d25b9b6ba005da80e7cb2a\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
@@ -251,6 +280,8 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ffa00a37f2b813e51fd3f04a05fe2e5c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\361330bf2d5a22ed9171b91e68032276\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\361330bf2d5a22ed9171b91e68032276\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\b82b79c34e2466c989ed1df83ce3e08b\transformed\jetified-aidl-13.1.5\AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\b82b79c34e2466c989ed1df83ce3e08b\transformed\jetified-aidl-13.1.5\AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
 		INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
@@ -303,6 +334,16 @@ ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\c
 		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
 	android:name
 		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+uses-permission#moe.shizuku.manager.permission.API_V23
+ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:8:5-78
+	android:name
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:8:22-75
+meta-data#moe.shizuku.client.V3_SUPPORT
+ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:11:9-13:36
+	android:value
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:13:13-33
+	android:name
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] C:\Users\sajha\.gradle\caches\9.0.0\transforms\ac3159e8752597f212500037f5b72344\transformed\jetified-provider-13.1.5\AndroidManifest.xml:12:13-57
 meta-data#androidx.profileinstaller.ProfileInstallerInitializer
 ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 	android:value
