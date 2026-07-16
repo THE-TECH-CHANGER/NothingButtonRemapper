@@ -134,6 +134,7 @@
 
         <!-- ── TERMUX SETUP GUIDE ─────────────────────────────────────── -->
         <LinearLayout
+            android:id="@+id/card_termux_setup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"

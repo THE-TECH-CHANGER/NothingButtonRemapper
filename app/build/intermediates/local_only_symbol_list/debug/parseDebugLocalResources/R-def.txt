@@ -28,6 +28,7 @@ id card_default
 id card_flashlight
 id card_nothing
 id card_screenshot
+id card_termux_setup
 id switch_enable
 id switch_vibrate
 id tv_root_status

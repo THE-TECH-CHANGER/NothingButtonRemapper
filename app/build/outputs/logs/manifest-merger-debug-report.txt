@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5c32f15271083e6f47ec898cc5874a1e\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c10d832d7c907efcac279b5255435dc9\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -80,9 +80,13 @@ uses-permission#android.permission.POST_NOTIFICATIONS
 ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:10:5-77
 	android:name
 		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:10:22-74
+uses-permission#android.permission.ACCESS_NOTIFICATION_POLICY
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:11:5-85
+	android:name
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:11:22-82
 application
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:12:5-43:19
-INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:12:5-43:19
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-44:19
+INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-44:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5e8019c59b6ca216ed00f15f958293ab\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\sajha\.gradle\caches\9.0.0\transforms\5c32f15271083e6f47ec898cc5874a1e\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -104,57 +108,57 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\sajha\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:18:9-35
 	android:label
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:16:9-41
 	android:roundIcon
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:17:9-54
 	android:icon
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:14:9-43
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:15:9-43
 	android:allowBackup
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:14:9-35
 	android:theme
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:18:9-53
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:19:9-53
 activity#com.nothing.remapper.MainActivity
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:20:9-28:20
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:21:9-29:20
 	android:windowSoftInputMode
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:23:13-55
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:24:13-55
 	android:exported
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:22:13-36
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:23:13-36
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:21:13-41
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:22:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:24:13-27:29
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:13-28:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:17-69
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:25-66
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:27-74
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:27:27-74
 service#com.nothing.remapper.KeyInterceptorService
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:30:9-41:19
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:31:9-42:19
 	android:label
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:33:13-45
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:34:13-45
 	android:exported
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:32:13-36
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:33:13-36
 	android:permission
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:34:13-79
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:35:13-79
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:31:13-50
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:32:13-50
 intent-filter#action:name:android.accessibilityservice.AccessibilityService
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:35:13-37:29
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:13-38:29
 action#android.accessibilityservice.AccessibilityService
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:17-92
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:37:17-92
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:25-89
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:37:25-89
 meta-data#android.accessibilityservice
-ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:38:13-40:72
+ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:39:13-41:72
 	android:resource
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:40:17-69
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:39:17-60
+		ADDED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:40:17-60
 uses-sdk
 INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml

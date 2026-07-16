@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App -->
     <string name="app_name">Essential Remapper</string>
     <string name="channel_name">Key Interceptor</string>
     <string name="channel_desc">Monitors the Essential Key in the background</string>
     <string name="notif_title">Essential Remapper Active</string>
     <string name="notif_text">Intercepting Essential Key presses</string>
-    <string name="accessibility_desc">Allows intercepting the Nothing Essential Button to remap it to custom actions.</string>
+    <string name="accessibility_desc">Allows intercepting the Nothing Essential Button to remap it to custom actions like flashlight, camera, screenshot, and more.</string>
+
+    <!-- Shizuku Setup -->
+    <string name="setup_title">Quick Setup</string>
+    <string name="setup_subtitle">3 easy steps to get started</string>
+    <string name="setup_complete">Setup Complete ✓</string>
+    <string name="step1_title">Install Shizuku</string>
+    <string name="step1_desc">Free app from the Play Store</string>
+    <string name="step1_button">Download</string>
+    <string name="step2_title">Start Shizuku</string>
+    <string name="step2_desc">Open it and follow the instructions</string>
+    <string name="step2_button">Open Shizuku</string>
+    <string name="step3_title">Disable Nothing Apps</string>
+    <string name="step3_desc">Frees the Essential Key for remapping</string>
+    <string name="step3_button">Run</string>
+    <string name="step_done">Done ✓</string>
+
+    <!-- Shizuku messages -->
+    <string name="shizuku_not_installed">Please install Shizuku first (Step 1)</string>
+    <string name="shizuku_not_running">Please start Shizuku first (Step 2)</string>
+    <string name="shizuku_permission_denied">Shizuku permission was denied. Please try again.</string>
+    <string name="shizuku_packages_disabled">Nothing apps disabled! You\'re all set.</string>
+    <string name="shizuku_packages_restored">Default Nothing behavior restored.</string>
+    <string name="shizuku_error">Something went wrong: %s</string>
+
+    <!-- Gestures -->
+    <string name="gesture_single_press">Single Press</string>
+    <string name="gesture_double_press">Double Press</string>
+    <string name="gesture_triple_press">Triple Press</string>
+    <string name="gesture_long_press">Long Press</string>
+    <string name="gesture_section_label">GESTURE ACTIONS</string>
+    <string name="gesture_tap_to_change">Tap to change action</string>
+
+    <!-- Actions -->
+    <string name="action_flashlight">Flashlight</string>
+    <string name="action_flashlight_desc">Toggle the torch on and off</string>
+    <string name="action_camera">Open Camera</string>
+    <string name="action_camera_desc">Launch camera app instantly</string>
+    <string name="action_shutter">Camera Shutter</string>
+    <string name="action_shutter_desc">Take a photo immediately</string>
+    <string name="action_screenshot">Screenshot</string>
+    <string name="action_screenshot_desc">Capture the screen with one press</string>
+    <string name="action_cycle_ringer">Cycle Ringer</string>
+    <string name="action_cycle_ringer_desc">Normal → Vibrate → Silent</string>
+    <string name="action_dialer">Phone Dialer</string>
+    <string name="action_dialer_desc">Open the phone dialer</string>
+    <string name="action_nothing">Do Nothing</string>
+    <string name="action_nothing_desc">Key press is silently consumed</string>
+    <string name="action_default">Pass Through</string>
+    <string name="action_default_desc">Let the system handle it normally</string>
+
+    <!-- Action picker dialog -->
+    <string name="pick_action_title">Choose Action for %s</string>
 </resources>

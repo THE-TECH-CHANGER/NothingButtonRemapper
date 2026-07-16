@@ -14,4 +14,11 @@
     <color name="active_green">#3DDC84</color>
     <color name="error_red">#E8372C</color>
     <color name="switch_track">#2A2A2A</color>
+
+    <!-- Shizuku / Setup -->
+    <color name="shizuku_accent">#7B68EE</color>
+    <color name="shizuku_accent_dark">#5A4FCF</color>
+    <color name="step_complete">#3DDC84</color>
+    <color name="step_pending">#333333</color>
+    <color name="step_active">#7B68EE</color>
 </resources>

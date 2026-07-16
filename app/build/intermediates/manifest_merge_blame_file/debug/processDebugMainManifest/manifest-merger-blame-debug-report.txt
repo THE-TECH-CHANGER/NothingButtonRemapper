@@ -26,146 +26,149 @@
 16    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 16-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:10:5-77
 16-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:10:22-74
-17
-18    <permission
-18-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-19        android:name="com.nothing.remapper.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-19-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-20        android:protectionLevel="signature" />
-20-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-21
-22    <uses-permission android:name="com.nothing.remapper.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-22-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-22-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
-23
-24    <application
-24-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:12:5-43:19
-25        android:allowBackup="true"
-25-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:9-35
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-27        android:debuggable="true"
-28        android:extractNativeLibs="false"
-29        android:icon="@mipmap/ic_launcher"
-29-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:14:9-43
-30        android:label="@string/app_name"
-30-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:15:9-41
-31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:16:9-54
-32        android:supportsRtl="true"
-32-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:17:9-35
-33        android:theme="@style/Theme.NothingRemapper" >
-33-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:18:9-53
-34        <activity
-34-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:20:9-28:20
-35            android:name="com.nothing.remapper.MainActivity"
-35-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:21:13-41
-36            android:exported="true"
-36-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:22:13-36
-37            android:windowSoftInputMode="adjustResize" >
-37-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:23:13-55
-38            <intent-filter>
-38-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:24:13-27:29
-39                <action android:name="android.intent.action.MAIN" />
-39-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:17-69
-39-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:25-66
-40
-41                <category android:name="android.intent.category.LAUNCHER" />
-41-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:17-77
-41-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:27-74
-42            </intent-filter>
-43        </activity>
-44
-45        <service
-45-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:30:9-41:19
-46            android:name="com.nothing.remapper.KeyInterceptorService"
-46-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:31:13-50
-47            android:exported="true"
-47-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:32:13-36
-48            android:label="@string/app_name"
-48-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:33:13-45
-49            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-49-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:34:13-79
-50            <intent-filter>
-50-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:35:13-37:29
-51                <action android:name="android.accessibilityservice.AccessibilityService" />
-51-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:17-92
-51-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:25-89
-52            </intent-filter>
-53
-54            <meta-data
-54-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:38:13-40:72
-55                android:name="android.accessibilityservice"
-55-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:39:17-60
-56                android:resource="@xml/accessibility_service_config" />
-56-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:40:17-69
-57        </service>
-58
-59        <provider
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-60            android:name="androidx.startup.InitializationProvider"
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-61            android:authorities="com.nothing.remapper.androidx-startup"
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-62            android:exported="false" >
-62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-63            <meta-data
-63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-65                android:value="androidx.startup" />
-65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-66            <meta-data
-66-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-68                android:value="androidx.startup" />
-68-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-69            <meta-data
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-71                android:value="androidx.startup" />
-71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-72        </provider>
-73
-74        <receiver
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-75            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-76            android:directBootAware="false"
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-77            android:enabled="true"
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-78            android:exported="true"
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-79            android:permission="android.permission.DUMP" >
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-80            <intent-filter>
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-81                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-82            </intent-filter>
-83            <intent-filter>
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-84                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-85            </intent-filter>
-86            <intent-filter>
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-87                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-88            </intent-filter>
-89            <intent-filter>
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-90                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-91            </intent-filter>
-92        </receiver>
-93    </application>
-94
-95</manifest>
+17    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+17-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:11:5-85
+17-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:11:22-82
+18
+19    <permission
+19-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+20        android:name="com.nothing.remapper.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.nothing.remapper.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:13:5-44:19
+26        android:allowBackup="true"
+26-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:14:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.12.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\dc9fe9aef703e16bf11586ee0d5964ba\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+28        android:debuggable="true"
+29        android:extractNativeLibs="false"
+30        android:icon="@mipmap/ic_launcher"
+30-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:15:9-43
+31        android:label="@string/app_name"
+31-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:16:9-41
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:17:9-54
+33        android:supportsRtl="true"
+33-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:18:9-35
+34        android:theme="@style/Theme.NothingRemapper" >
+34-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:19:9-53
+35        <activity
+35-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:21:9-29:20
+36            android:name="com.nothing.remapper.MainActivity"
+36-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:22:13-41
+37            android:exported="true"
+37-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:23:13-36
+38            android:windowSoftInputMode="adjustResize" >
+38-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:24:13-55
+39            <intent-filter>
+39-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:25:13-28:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:17-69
+40-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:26:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:27:17-77
+42-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:27:27-74
+43            </intent-filter>
+44        </activity>
+45
+46        <service
+46-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:31:9-42:19
+47            android:name="com.nothing.remapper.KeyInterceptorService"
+47-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:32:13-50
+48            android:exported="true"
+48-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:33:13-36
+49            android:label="@string/app_name"
+49-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:34:13-45
+50            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+50-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:35:13-79
+51            <intent-filter>
+51-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:36:13-38:29
+52                <action android:name="android.accessibilityservice.AccessibilityService" />
+52-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:37:17-92
+52-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:37:25-89
+53            </intent-filter>
+54
+55            <meta-data
+55-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:39:13-41:72
+56                android:name="android.accessibilityservice"
+56-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:40:17-60
+57                android:resource="@xml/accessibility_service_config" />
+57-->C:\Users\sajha\OneDrive\Desktop\NothingButtonRemapper\app\src\main\AndroidManifest.xml:41:17-69
+58        </service>
+59
+60        <provider
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+61            android:name="androidx.startup.InitializationProvider"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+62            android:authorities="com.nothing.remapper.androidx-startup"
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+63            android:exported="false" >
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+64            <meta-data
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+65                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+65-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+66                android:value="androidx.startup" />
+66-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\a84a962d263bf1c0b21a834a78aee212\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+67            <meta-data
+67-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+68                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+68-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+69                android:value="androidx.startup" />
+69-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\c39891a78f2f04c9e228d5bedd0a4b88\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+70            <meta-data
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+71                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+72                android:value="androidx.startup" />
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+73        </provider>
+74
+75        <receiver
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+76            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+77            android:directBootAware="false"
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+78            android:enabled="true"
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+79            android:exported="true"
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+80            android:permission="android.permission.DUMP" >
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+82                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+83            </intent-filter>
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+85                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+88                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+91                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sajha\.gradle\caches\9.0.0\transforms\6935e78213804d4766b9279e49012fd4\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+92            </intent-filter>
+93        </receiver>
+94    </application>
+95
+96</manifest>
