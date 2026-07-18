@@ -18,11 +18,13 @@ Welcome to **Nothing Button Remapper V2**! This open-source app allows you to co
 ## ✨ Features (New in V2!)
 
 - **No Root Required!** Uses Android's built-in Accessibility Service + **Shizuku**.
+- **App Profiles:** Set custom button actions based on which app is currently open!
+- **State Constraints:** Choose to trigger actions only when the screen is off, media is playing, WiFi is connected, and more!
+- **Simulate ANY Android Key (New!):** The app now functions as an Accessibility Input Method, allowing you to inject arbitrary Android keycodes (e.g., Volume Up, Media Play/Pause, Navigation keys) directly into the OS without root!
 - **Multi-Gesture Engine:** Assign different actions to Single Press, Double Press, Triple Press, and Long Press.
-- **Context-Aware Camera Shutter:** The button acts as a shutter when your camera app is open!
 - **Cycle Ringer Mode:** Instantly cycle between Normal ➡️ Vibrate ➡️ Silent modes.
 - **Flashlight, Camera, Screenshot:** Quick access to essential utilities.
-- **In-App Onboarding:** No more PC or Termux needed! Everything is done inside the app via Shizuku.
+- **Unlock Wizard:** Easily bypass the OS restriction with a built-in Shizuku wizard.
 - **Nothing OS Aesthetic:** Designed with the signature dot-matrix and monochrome feel.
 
 ---
@@ -42,16 +44,6 @@ Because Nothing OS heavily guards the Essential Key, you need to disable the def
 5. Customize your gestures (Single Press, Double Press, etc.) and you're done!
 
 ---
-
-## 🛠️ Building from Source
-
-If you want to compile the app yourself using Android Studio:
-
-```bash
-git clone https://github.com/THE-TECH-CHANGER/NothingButtonRemapper.git
-cd NothingButtonRemapper
-./gradlew assembleDebug
-```
 
 ## 🚀 Future Plans
 
