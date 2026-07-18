@@ -11,8 +11,8 @@ android {
         applicationId = "com.nothing.remapper"
         minSdk = 29
         targetSdk = 34
-        versionCode = 3
-        versionName = "2.0.1"
+        versionCode = 4
+        versionName = "2.0"
     }
 
 
@@ -40,8 +40,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    // Shizuku
-    val shizukuVersion = "13.1.5"
+    // Shizuku API
+    val shizukuVersion = "12.1.0"
     implementation("dev.rikka.shizuku:api:$shizukuVersion")
     implementation("dev.rikka.shizuku:provider:$shizukuVersion")
 }

@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "com.nothing.remapper.app-release-34:/font_space_mono_regular.ttf.flat",
+        "source": "com.nothing.remapper.app-main-35:/font/space_mono_regular.ttf"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_item_app.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/item_app.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_layout_constraint_picker.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/layout_constraint_picker.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_bg_status_dot_green.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/bg_status_dot_green.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_item_category_header.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/item_category_header.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_layout_unlock_wizard.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/layout_unlock_wizard.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_bg_reference_card.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/bg_reference_card.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/font_space_mono_bold.ttf.flat",
+        "source": "com.nothing.remapper.app-main-35:/font/space_mono_bold.ttf"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/xml_method.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/xml/method.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_item_action.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/item_action.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/xml_accessibility_service_config.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_bg_action_btn.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/bg_action_btn.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/drawable_bg_status_dot_red.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/drawable/bg_status_dot_red.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_layout_action_picker.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/layout_action_picker.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/font_doto_variable.ttf.flat",
+        "source": "com.nothing.remapper.app-main-35:/font/doto_variable.ttf"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.nothing.remapper.app-release-34:/layout_activity_main.xml.flat",
+        "source": "com.nothing.remapper.app-main-35:/layout/activity_main.xml"
+    }
+]
