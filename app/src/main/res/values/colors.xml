@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#000000</color>
-    <color name="surface">#111111</color>
-    <color name="surface_card">#141414</color>
-    <color name="surface_card_selected">#1E1E1E</color>
-    <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="card_bg">#181818</color>
     <color name="card_stroke">#333333</color>
@@ -15,11 +11,4 @@
     <color name="error_red">#FF3B30</color>
     <color name="status_red">#FF0000</color>
     <color name="divider">#2A2A2A</color>
-
-    <!-- Shizuku / Setup -->
-    <color name="shizuku_accent">#7B68EE</color>
-    <color name="shizuku_accent_dark">#5A4FCF</color>
-    <color name="step_complete">#3DDC84</color>
-    <color name="step_pending">#333333</color>
-    <color name="step_active">#7B68EE</color>
 </resources>

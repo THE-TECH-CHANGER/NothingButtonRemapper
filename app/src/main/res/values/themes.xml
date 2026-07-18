@@ -2,9 +2,9 @@
 <resources>
     <style name="Theme.NothingRemapper" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryVariant">@color/surface</item>
+        <item name="colorPrimaryVariant">@color/card_bg</item>
         <item name="colorOnPrimary">@color/black</item>
-        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurface">@color/card_bg</item>
         <item name="colorOnSurface">@color/white</item>
         <item name="android:colorBackground">@color/black</item>
         <item name="android:windowBackground">@color/black</item>
@@ -12,11 +12,5 @@
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
-        <item name="switchStyle">@style/Widget.Nothing.Switch</item>
-    </style>
-
-    <style name="Widget.Nothing.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
-        <item name="trackTint">@color/switch_track</item>
-        <item name="thumbTint">@color/white</item>
     </style>
 </resources>

@@ -1,345 +1,362 @@
 package com.nothing.remapper
 
 import android.accessibilityservice.AccessibilityService
+import android.accessibilityservice.AccessibilityServiceInfo
+import android.annotation.SuppressLint
+import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.hardware.camera2.CameraManager
 import android.media.AudioManager
-import android.os.Build
 import android.os.Handler
 import android.os.Looper
-import android.os.VibrationEffect
-import android.os.Vibrator
-import android.os.VibratorManager
-import android.util.Log
+import android.os.PowerManager
+import android.os.SystemClock
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Toast
 
-/**
- * KeyInterceptorService
- *
- * Runs as an AccessibilityService and intercepts hardware key events.
- * Implements a gesture detection state machine that recognizes:
- *   - Single press, Double press, Triple press, Long press
- *
- * Context-aware: detects if a camera app is in the foreground and
- * uses camera-specific action overrides when configured.
- */
 class KeyInterceptorService : AccessibilityService() {
 
-    companion object {
-        @Volatile var isRunning = false
-        private const val TAG = "KeyInterceptor"
+    private lateinit var prefs: SharedPreferences
+    private var isTorchOn = false
 
-        // Timing constants
-        private const val MULTI_PRESS_WINDOW_MS = 350L
-        private const val LONG_PRESS_THRESHOLD_MS = 500L
+    // State machine for gestures
+    private var pressCount = 0
+    private var isLongPressing = false
+    private val handler = Handler(Looper.getMainLooper())
+    private val LONG_PRESS_TIMEOUT = 500L
+    private val MULTI_PRESS_TIMEOUT = 300L
+    
+    // We only care about the Essential Key which typically sends KeyCode 0 on Nothing devices
+    private val ESSENTIAL_KEYCODE = 0
 
-        // Gesture keys for preferences
-        const val GESTURE_SINGLE = "single_press"
-        const val GESTURE_DOUBLE = "double_press"
-        const val GESTURE_TRIPLE = "triple_press"
-        const val GESTURE_LONG   = "long_press"
-
-        // Action constants
-        const val ACTION_FLASHLIGHT    = "flashlight"
-        const val ACTION_CAMERA        = "camera"
-        const val ACTION_SHUTTER       = "shutter"
-        const val ACTION_SCREENSHOT    = "screenshot"
-        const val ACTION_CYCLE_RINGER  = "cycle_ringer"
-        const val ACTION_DIALER        = "dialer"
-        const val ACTION_NOTHING       = "nothing"
-        const val ACTION_DEFAULT       = "default"
-
-        // Preference key pattern: "action_{gesture}" and "action_{gesture}_camera"
-        fun actionKey(gesture: String) = "action_$gesture"
-        fun cameraActionKey(gesture: String) = "action_${gesture}_camera"
-
-        // Known camera package names
-        private val CAMERA_PACKAGES = setOf(
-            "com.nothing.camera",
-            "com.google.android.GoogleCamera",
-            "com.android.camera",
-            "com.android.camera2",
-            "com.sec.android.app.camera",
-            "com.huawei.camera",
-            "com.oneplus.camera",
-            "com.oppo.camera",
-            "org.codeaurora.snapcam",
-            "com.motorola.camera3"
-        )
+    private val multiPressRunnable = Runnable {
+        when (pressCount) {
+            1 -> executeAction(getActionForGesture("single_press"))
+            2 -> executeAction(getActionForGesture("double_press"))
+            3 -> executeAction(getActionForGesture("triple_press"))
+        }
+        pressCount = 0
     }
 
-    private var torchEnabled = false
-    private lateinit var prefs: SharedPreferences
-    private val handler = Handler(Looper.getMainLooper())
+    private val longPressRunnable = Runnable {
+        isLongPressing = true
+        executeAction(getActionForGesture("long_press"))
+    }
 
-    // Gesture state machine
-    private var pressCount = 0
-    private var isKeyDown = false
-    private var longPressTriggered = false
-    private var currentForegroundPackage: String = ""
+    private val torchCallback = object : CameraManager.TorchCallback() {
+        override fun onTorchModeChanged(cameraId: String, enabled: Boolean) {
+            super.onTorchModeChanged(cameraId, enabled)
+            isTorchOn = enabled
+        }
+    }
 
-    // Runnables for timing
-    private val multiPressRunnable = Runnable { onMultiPressWindowExpired() }
-    private val longPressRunnable = Runnable { onLongPressTriggered() }
-
-    // ──────────────────────────────────────────────────────────────────────────
     override fun onServiceConnected() {
         super.onServiceConnected()
-        isRunning = true
-        prefs = getSharedPreferences(MainActivity.PREFS_NAME, MODE_PRIVATE)
-        Log.d(TAG, "Accessibility Service Connected — Gesture engine active")
+        prefs = getSharedPreferences("RemapperPrefs", Context.MODE_PRIVATE)
+        
+        val info = AccessibilityServiceInfo()
+        info.eventTypes = AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
+        info.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC
+        info.flags = AccessibilityServiceInfo.FLAG_REQUEST_FILTER_KEY_EVENTS or AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
+        serviceInfo = info
+
+        try {
+            val cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            cameraManager.registerTorchCallback(torchCallback, Handler(Looper.getMainLooper()))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        return super.onStartCommand(intent, flags, startId)
-    }
+    private var currentForegroundApp: String = ""
 
-    // ──────────────────────────────────────────────────────────────────────────
-    // Context Awareness: track foreground app
-    // ──────────────────────────────────────────────────────────────────────────
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event?.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-            event.packageName?.toString()?.let { pkg ->
-                if (pkg != currentForegroundPackage) {
-                    currentForegroundPackage = pkg
-                    Log.d(TAG, "Foreground app: $pkg")
-                }
+            event.packageName?.let {
+                currentForegroundApp = it.toString()
             }
         }
     }
 
-    override fun onInterrupt() {
-        // Required override
-    }
+    override fun onInterrupt() {}
 
-    /** Check if a camera app is currently in the foreground */
-    private fun isCameraInForeground(): Boolean {
-        return currentForegroundPackage in CAMERA_PACKAGES ||
-               currentForegroundPackage.contains("camera", ignoreCase = true)
-    }
-
-    // ──────────────────────────────────────────────────────────────────────────
-    // Gesture Detection State Machine
-    // ──────────────────────────────────────────────────────────────────────────
     override fun onKeyEvent(event: KeyEvent): Boolean {
-        if (!prefs.getBoolean(MainActivity.KEY_ENABLED, false)) {
+        // Broadcast the event for the Expert Mode UI
+        val intent = Intent("com.nothing.remapper.KEY_EVENT")
+        intent.putExtra("scanCode", event.scanCode)
+        intent.putExtra("keyCode", event.keyCode)
+        sendBroadcast(intent)
+
+        if (event.keyCode != ESSENTIAL_KEYCODE && event.scanCode != 250) {
             return super.onKeyEvent(event)
         }
 
-        val customKey = prefs.getInt(MainActivity.KEY_KEYCODE, 0)
-        if (event.keyCode != customKey) {
-            return super.onKeyEvent(event)
+        if (event.action == KeyEvent.ACTION_DOWN) {
+            if (event.repeatCount == 0) {
+                // Initial press down
+                isLongPressing = false
+                handler.postDelayed(longPressRunnable, LONG_PRESS_TIMEOUT)
+            }
+            return true
+        } else if (event.action == KeyEvent.ACTION_UP) {
+            handler.removeCallbacks(longPressRunnable)
+            if (!isLongPressing) {
+                pressCount++
+                handler.removeCallbacks(multiPressRunnable)
+                handler.postDelayed(multiPressRunnable, MULTI_PRESS_TIMEOUT)
+            }
+            return true
         }
 
-        when (event.action) {
-            KeyEvent.ACTION_DOWN -> onTargetKeyDown()
-            KeyEvent.ACTION_UP   -> onTargetKeyUp()
+        return super.onKeyEvent(event)
+    }
+
+    private fun getActionForGesture(gesture: String): Triple<String, String, String> {
+        // Check app-specific mapping first
+        if (currentForegroundApp.isNotEmpty()) {
+            val appType = prefs.getString("${currentForegroundApp}_${gesture}_type", null)
+            val appAction = prefs.getString("${currentForegroundApp}_${gesture}", null)
+            val appConstraint = prefs.getString("${currentForegroundApp}_${gesture}_constraint", "always")
+            if (appType != null && appAction != null && appAction != "none") {
+                return Triple(appType, appAction, appConstraint ?: "always")
+            }
+        }
+        
+        // Fallback to global mapping
+        val type = prefs.getString("${gesture}_type", "builtin") ?: "builtin"
+        val action = prefs.getString(gesture, "none") ?: "none"
+        val constraint = prefs.getString("${gesture}_constraint", "always") ?: "always"
+        return Triple(type, action, constraint)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun executeAction(actionTriple: Triple<String, String, String>) {
+        val type = actionTriple.first
+        val action = actionTriple.second
+        val constraint = actionTriple.third
+
+        if (action == "none") return
+        
+        // Check constraints
+        if (constraint != "always") {
+            val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+            val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+            val isScreenOn = pm.isInteractive
+            val isUnlocked = !km.isDeviceLocked
+            
+            val am = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            when (constraint) {
+                // General
+                "always" -> {} // proceed
+                
+                // Apps
+                "app_foreground" -> if (currentForegroundApp.isEmpty()) return
+                "app_not_foreground" -> if (currentForegroundApp.isNotEmpty()) return
+                "app_playing_media" -> if (!am.isMusicActive) return
+                "app_not_playing_media" -> if (am.isMusicActive) return
+                
+                // Media
+                "media_playing" -> if (!am.isMusicActive) return
+                "media_not_playing" -> if (am.isMusicActive) return
+                
+                // Bluetooth
+                "bluetooth_connected" -> if (!isBluetoothConnected()) return
+                "bluetooth_disconnected" -> if (isBluetoothConnected()) return
+                
+                // Display
+                "screen_on" -> if (!isScreenOn) return
+                "screen_off" -> if (isScreenOn) return
+                "orientation_landscape" -> if (resources.configuration.orientation != android.content.res.Configuration.ORIENTATION_LANDSCAPE) return
+                "orientation_portrait" -> if (resources.configuration.orientation != android.content.res.Configuration.ORIENTATION_PORTRAIT) return
+                
+                // Flashlight
+                "flashlight_on" -> if (!isTorchOn) return
+                "flashlight_off" -> if (isTorchOn) return
+                
+                // WiFi
+                "wifi_on" -> if (!isWifiConnected()) return
+                "wifi_off" -> if (isWifiConnected()) return
+                
+                // Keyboard
+                "keyboard_chosen" -> if (!isKeyboardChosen()) return
+                "keyboard_not_chosen" -> if (isKeyboardChosen()) return
+                "keyboard_showing" -> if (!isKeyboardShowing()) return
+                "keyboard_not_showing" -> if (isKeyboardShowing()) return
+                
+                // Lock
+                "locked" -> if (!isDeviceLocked()) return
+                "unlocked" -> if (isDeviceLocked()) return
+                "lock_screen_showing" -> if (!isKeyguardShowing()) return
+                "lock_screen_not_showing" -> if (isKeyguardShowing()) return
+                
+                // Phone
+                "phone_call" -> if (!isCallState(android.telephony.TelephonyManager.CALL_STATE_OFFHOOK)) return
+                "not_phone_call" -> if (isCallState(android.telephony.TelephonyManager.CALL_STATE_OFFHOOK)) return
+                "call_ringing" -> if (!isCallState(android.telephony.TelephonyManager.CALL_STATE_RINGING)) return
+                
+                // Power
+                "power_charging" -> if (!isCharging()) return
+                "power_discharging" -> if (isCharging()) return
+                
+                // Device
+                "hinge_closed" -> if (!isHingeClosed()) return
+                "hinge_open" -> if (isHingeClosed()) return
+            }
         }
 
-        return true // consume the event
-    }
-
-    private fun onTargetKeyDown() {
-        if (isKeyDown) return // ignore repeat events
-        isKeyDown = true
-        longPressTriggered = false
-
-        // Cancel multi-press window (user is still pressing)
-        handler.removeCallbacks(multiPressRunnable)
-
-        // Start long-press timer
-        handler.postDelayed(longPressRunnable, LONG_PRESS_THRESHOLD_MS)
-    }
-
-    private fun onTargetKeyUp() {
-        isKeyDown = false
-
-        // Cancel long-press timer
-        handler.removeCallbacks(longPressRunnable)
-
-        // If long-press already triggered, don't count this as a tap
-        if (longPressTriggered) {
-            longPressTriggered = false
-            pressCount = 0
+        if (type == "app") {
+            try {
+                val launchIntent = packageManager.getLaunchIntentForPackage(action)
+                if (launchIntent != null) {
+                    launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(launchIntent)
+                } else {
+                    Toast.makeText(this, "Cannot launch app", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            return
+        }
+        
+        if (type == "keycode") {
+            try {
+                val keycode = action.toInt()
+                val injectIntent = Intent("com.nothing.remapper.INJECT_KEYCODE").apply {
+                    putExtra("keycode", keycode)
+                    setPackage(packageName)
+                }
+                sendBroadcast(injectIntent)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
             return
         }
 
-        // Count this press
-        pressCount++
-
-        // If we've hit 3 presses, fire immediately (no point waiting for more)
-        if (pressCount >= 3) {
-            handler.removeCallbacks(multiPressRunnable)
-            onMultiPressWindowExpired()
-            return
-        }
-
-        // Start/restart the multi-press detection window
-        handler.removeCallbacks(multiPressRunnable)
-        handler.postDelayed(multiPressRunnable, MULTI_PRESS_WINDOW_MS)
-    }
-
-    private fun onMultiPressWindowExpired() {
-        val gesture = when (pressCount) {
-            1    -> GESTURE_SINGLE
-            2    -> GESTURE_DOUBLE
-            else -> GESTURE_TRIPLE
-        }
-        pressCount = 0
-        executeGestureAction(gesture)
-    }
-
-    private fun onLongPressTriggered() {
-        longPressTriggered = true
-        pressCount = 0
-        executeGestureAction(GESTURE_LONG)
-    }
-
-    // ──────────────────────────────────────────────────────────────────────────
-    // Action Execution
-    // ──────────────────────────────────────────────────────────────────────────
-    private fun executeGestureAction(gesture: String) {
-        val inCamera = isCameraInForeground()
-        val action: String
-
-        if (inCamera) {
-            // Try camera-specific override first, fall back to default
-            val cameraAction = prefs.getString(cameraActionKey(gesture), "")
-            action = if (!cameraAction.isNullOrEmpty()) cameraAction
-                     else prefs.getString(actionKey(gesture), ACTION_NOTHING) ?: ACTION_NOTHING
-        } else {
-            action = prefs.getString(actionKey(gesture), getDefaultAction(gesture)) ?: ACTION_NOTHING
-        }
-
-        Log.d(TAG, "Gesture: $gesture | Camera: $inCamera | Action: $action")
-
-        if (action == ACTION_DEFAULT) {
-            // Don't execute any action — let the system handle it
-            return
-        }
-
+        // Built-in actions
         when (action) {
-            ACTION_FLASHLIGHT   -> toggleFlashlight()
-            ACTION_CAMERA       -> openCamera()
-            ACTION_SHUTTER      -> triggerCameraShutter()
-            ACTION_SCREENSHOT   -> takeScreenshot()
-            ACTION_CYCLE_RINGER -> cycleRingerMode()
-            ACTION_DIALER       -> openDialer()
-            ACTION_NOTHING      -> { /* intentionally empty */ }
-        }
-
-        // Haptic feedback if enabled
-        if (prefs.getBoolean(MainActivity.KEY_VIBRATE, true)) {
-            vibrate(50)
+            "flashlight" -> toggleFlashlight()
+            "screenshot" -> performGlobalAction(GLOBAL_ACTION_TAKE_SCREENSHOT)
+            "camera" -> launchCamera()
+            "media_play_pause" -> sendMediaKey(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE)
+            "media_next" -> sendMediaKey(KeyEvent.KEYCODE_MEDIA_NEXT)
+            "media_previous" -> sendMediaKey(KeyEvent.KEYCODE_MEDIA_PREVIOUS)
+            "home" -> performGlobalAction(GLOBAL_ACTION_HOME)
+            "back" -> performGlobalAction(GLOBAL_ACTION_BACK)
+            "recents" -> performGlobalAction(GLOBAL_ACTION_RECENTS)
+            "lock_screen" -> performGlobalAction(GLOBAL_ACTION_LOCK_SCREEN)
+            "notifications" -> performGlobalAction(GLOBAL_ACTION_NOTIFICATIONS)
+            "quick_settings" -> performGlobalAction(GLOBAL_ACTION_QUICK_SETTINGS)
+            "power_menu" -> performGlobalAction(GLOBAL_ACTION_POWER_DIALOG)
+            "split_screen" -> performGlobalAction(GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN)
+            "volume_up" -> adjustVolume(AudioManager.ADJUST_RAISE)
+            "volume_down" -> adjustVolume(AudioManager.ADJUST_LOWER)
         }
     }
 
-    /** Default actions for each gesture when no preference is set */
-    private fun getDefaultAction(gesture: String): String = when (gesture) {
-        GESTURE_SINGLE -> ACTION_FLASHLIGHT
-        GESTURE_DOUBLE -> ACTION_CAMERA
-        GESTURE_TRIPLE -> ACTION_SCREENSHOT
-        GESTURE_LONG   -> ACTION_CYCLE_RINGER
-        else           -> ACTION_NOTHING
-    }
-
-    // ──────────────────────────────────────────────────────────────────────────
-    // Individual Actions
-    // ──────────────────────────────────────────────────────────────────────────
     private fun toggleFlashlight() {
         try {
-            val cm       = getSystemService(Context.CAMERA_SERVICE) as CameraManager
-            val cameraId = cm.cameraIdList.firstOrNull() ?: return
-            torchEnabled = !torchEnabled
-            cm.setTorchMode(cameraId, torchEnabled)
+            val cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            val cameraId = cameraManager.cameraIdList[0]
+            isTorchOn = !isTorchOn
+            cameraManager.setTorchMode(cameraId, isTorchOn)
         } catch (e: Exception) {
-            Log.e(TAG, "Flashlight error: ${e.message}")
+            e.printStackTrace()
         }
     }
 
-    private fun openCamera() {
-        val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-        }
-        runCatching { startActivity(intent) }
+    private fun launchCamera() {
+        val intent = Intent(android.provider.MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 
-    private fun triggerCameraShutter() {
-        // Send a media key event to trigger the camera shutter
-        // This works when a camera app is in the foreground
-        try {
-            val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-            val downEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_CAMERA)
-            val upEvent = KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_CAMERA)
-            audioManager.dispatchMediaKeyEvent(downEvent)
-            audioManager.dispatchMediaKeyEvent(upEvent)
-            Log.d(TAG, "Camera shutter key dispatched")
+    private fun sendMediaKey(keyCode: Int) {
+        val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        val eventDown = KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), KeyEvent.ACTION_DOWN, keyCode, 0)
+        audioManager.dispatchMediaKeyEvent(eventDown)
+        val eventUp = KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), KeyEvent.ACTION_UP, keyCode, 0)
+        audioManager.dispatchMediaKeyEvent(eventUp)
+    }
+    
+    private fun adjustVolume(direction: Int) {
+        val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        audioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, direction, AudioManager.FLAG_SHOW_UI)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun isBluetoothConnected(): Boolean {
+        return try {
+            val bluetoothManager = getSystemService(Context.BLUETOOTH_SERVICE) as android.bluetooth.BluetoothManager
+            val adapter = bluetoothManager.adapter ?: return false
+            adapter.getProfileConnectionState(android.bluetooth.BluetoothProfile.HEADSET) == android.bluetooth.BluetoothProfile.STATE_CONNECTED ||
+            adapter.getProfileConnectionState(android.bluetooth.BluetoothProfile.A2DP) == android.bluetooth.BluetoothProfile.STATE_CONNECTED
         } catch (e: Exception) {
-            Log.e(TAG, "Shutter error: ${e.message}")
-            // Fallback: try volume key which many camera apps use as shutter
-            try {
-                val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-                val downEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_VOLUME_UP)
-                val upEvent = KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_VOLUME_UP)
-                audioManager.dispatchMediaKeyEvent(downEvent)
-                audioManager.dispatchMediaKeyEvent(upEvent)
-            } catch (e2: Exception) {
-                Log.e(TAG, "Shutter fallback error: ${e2.message}")
-            }
+            false
         }
     }
 
-    private fun takeScreenshot() {
-        performGlobalAction(GLOBAL_ACTION_TAKE_SCREENSHOT)
-    }
-
-    private fun cycleRingerMode() {
-        try {
-            val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-            val currentMode = audioManager.ringerMode
-
-            val nextMode = when (currentMode) {
-                AudioManager.RINGER_MODE_NORMAL  -> AudioManager.RINGER_MODE_VIBRATE
-                AudioManager.RINGER_MODE_VIBRATE -> AudioManager.RINGER_MODE_SILENT
-                else -> AudioManager.RINGER_MODE_NORMAL
-            }
-            audioManager.ringerMode = nextMode
+    private fun isWifiConnected(): Boolean {
+        return try {
+            val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+            cm.activeNetworkInfo?.type == android.net.ConnectivityManager.TYPE_WIFI && cm.activeNetworkInfo?.isConnected == true
         } catch (e: Exception) {
-            Log.e(TAG, "Audio manager error: ${e.message}")
+            false
         }
     }
 
-    private fun openDialer() {
-        val intent = Intent(Intent.ACTION_DIAL).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-        }
-        runCatching { startActivity(intent) }
+    private fun isCharging(): Boolean {
+        val intent = registerReceiver(null, android.content.IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        val status = intent?.getIntExtra(android.os.BatteryManager.EXTRA_STATUS, -1) ?: -1
+        return status == android.os.BatteryManager.BATTERY_STATUS_CHARGING || status == android.os.BatteryManager.BATTERY_STATUS_FULL
     }
 
-    private fun vibrate(durationMs: Long) {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                val vm = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
-                vm.defaultVibrator.vibrate(
-                    VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
-                )
-            } else {
-                @Suppress("DEPRECATION")
-                val v = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                v.vibrate(VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE))
-            }
+    @SuppressLint("MissingPermission")
+    private fun isCallState(state: Int): Boolean {
+        val tm = getSystemService(Context.TELEPHONY_SERVICE) as android.telephony.TelephonyManager
+        return tm.callState == state
+    }
+    
+    private fun isKeyboardChosen(): Boolean {
+        return try {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            imm.currentInputMethodSubtype != null
         } catch (e: Exception) {
-            Log.e(TAG, "Vibrate error: ${e.message}")
+            false
         }
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
-    override fun onUnbind(intent: Intent?): Boolean {
-        isRunning = false
-        handler.removeCallbacksAndMessages(null)
-        return super.onUnbind(intent)
+    private fun isKeyboardShowing(): Boolean {
+        return try {
+            softKeyboardController.showMode != android.accessibilityservice.AccessibilityService.SHOW_MODE_HIDDEN
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    private fun isDeviceLocked(): Boolean {
+        return try {
+            val km = getSystemService(Context.KEYGUARD_SERVICE) as android.app.KeyguardManager
+            km.isDeviceLocked
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    private fun isKeyguardShowing(): Boolean {
+        return try {
+            val km = getSystemService(Context.KEYGUARD_SERVICE) as android.app.KeyguardManager
+            km.isKeyguardLocked
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    private fun isHingeClosed(): Boolean {
+        // Fallback for non-foldable devices or without explicit hinge sensor handling
+        return false
     }
 }

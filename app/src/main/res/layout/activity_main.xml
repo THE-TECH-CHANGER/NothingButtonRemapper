@@ -3,665 +3,358 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:fillViewport="true"
-    android:scrollbars="none">
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clipChildren="false">
 
-        <!-- Safe area top -->
-        <View android:layout_width="match_parent" android:layout_height="32dp" />
-
-        <!-- ── HEADER ─────────────────────────────────────────────────── -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_launcher_foreground"
-                android:scaleType="fitCenter" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingStart="14dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Essential"
-                    android:textSize="28sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="sans-serif-light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remapper"
-                    android:textSize="28sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="sans-serif-black"
-                    android:layout_marginTop="-6dp" />
-            </LinearLayout>
-        </LinearLayout>
-
+        <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="28dp"
-            android:text="Nothing Phone · No Root Required"
-            android:textSize="12sp"
-            android:textColor="@color/label"
-            android:letterSpacing="0.04" />
+            android:text="ESSENTIAL KEY\nTOOLS"
+            android:fontFamily="@font/doto_variable"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="32dp"
+            android:letterSpacing="0.1"/>
 
-        <!-- ── STATUS CHIPS ───────────────────────────────────────────── -->
+        <!-- Service Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="24dp"
-            android:paddingBottom="16dp">
-
-            <!-- Service Status -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/bg_status_chip"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SERVICE"
-                    android:textSize="9sp"
-                    android:textColor="@color/label"
-                    android:letterSpacing="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_service_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Inactive"
-                    android:textSize="14sp"
-                    android:textColor="@color/text_secondary"
-                    android:fontFamily="sans-serif-black" />
-            </LinearLayout>
-
-            <!-- Shizuku Status -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_status_chip"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SHIZUKU"
-                    android:textSize="9sp"
-                    android:textColor="@color/label"
-                    android:letterSpacing="0.15" />
-
-                <TextView
-                    android:id="@+id/tv_shizuku_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Checking..."
-                    android:textSize="14sp"
-                    android:textColor="#888888"
-                    android:fontFamily="sans-serif-black" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- ── SHIZUKU SETUP GUIDE (3 STEPS) ──────────────────────────── -->
-        <LinearLayout
-            android:id="@+id/card_shizuku_setup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_main_card"
+            android:background="@drawable/bg_reference_card"
             android:orientation="vertical"
             android:padding="20dp"
-            android:visibility="visible">
+            android:layout_marginBottom="16dp">
 
             <TextView
-                android:id="@+id/tv_setup_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/setup_title"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:fontFamily="sans-serif-black" />
-
-            <TextView
-                android:id="@+id/tv_setup_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/setup_subtitle"
+                android:text="SERVICE"
+                android:fontFamily="@font/space_mono_regular"
                 android:textSize="12sp"
+                android:textColor="@color/label"
+                android:textAllCaps="true"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <View
+                    android:id="@+id/indicatorService"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_status_dot_red"
+                    android:layout_marginEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/tvServiceStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SERVICE - STOPPED"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnServiceAction"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_action_btn"
+                android:text="ENABLE ACCESSIBILITY"
+                android:fontFamily="@font/space_mono_bold"
+                android:textSize="14sp"
                 android:textColor="@color/text_secondary" />
-
-            <!-- Step 1 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                
-                <TextView
-                    android:id="@+id/indicator_step1"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/bg_step_indicator"
-                    android:text="1"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-black" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step1_title"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step1_desc"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btn_step1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_shizuku_button"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/step1_button"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:clickable="true"
-                    android:focusable="true"/>
-            </LinearLayout>
-
-            <!-- Step 2 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                
-                <TextView
-                    android:id="@+id/indicator_step2"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/bg_step_indicator"
-                    android:text="2"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-black" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step2_title"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step2_desc"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btn_step2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_shizuku_button"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/step2_button"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:clickable="true"
-                    android:focusable="true"/>
-            </LinearLayout>
-
-            <!-- Step 3 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                
-                <TextView
-                    android:id="@+id/indicator_step3"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@drawable/bg_step_indicator"
-                    android:text="3"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:gravity="center"
-                    android:fontFamily="sans-serif-black" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="12dp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step3_title"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/step3_desc"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btn_step3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_shizuku_button"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/step3_button"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:clickable="true"
-                    android:focusable="true"/>
-            </LinearLayout>
-
         </LinearLayout>
 
-        <!-- ── MAIN ENABLE TOGGLE ─────────────────────────────────────── -->
+        <!-- Unlock Wizard Card -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:background="@drawable/bg_main_card"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Enable Remapping"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="sans-serif-black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Must enable Accessibility Service"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_secondary" />
-            </LinearLayout>
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switch_enable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <!-- ── SECTION LABEL: GESTURE ACTIONS ──────────────────────────── -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="12dp"
-            android:text="@string/gesture_section_label"
-            android:textSize="10sp"
-            android:textColor="@color/label"
-            android:letterSpacing="0.15" />
-
-        <!-- ── GESTURE CARDS ───────────────────────────────────────────── -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:background="@drawable/bg_reference_card"
             android:orientation="vertical"
-            android:paddingHorizontal="24dp">
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
 
-            <!-- SINGLE PRESS -->
-            <LinearLayout
-                android:id="@+id/card_single_press"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_gesture_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gesture_single_press"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-black" />
-
-                    <TextView
-                        android:id="@+id/tv_action_single"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/action_flashlight"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="1️⃣"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- DOUBLE PRESS -->
-            <LinearLayout
-                android:id="@+id/card_double_press"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_gesture_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gesture_double_press"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-black" />
-
-                    <TextView
-                        android:id="@+id/tv_action_double"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/action_camera"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="2️⃣"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- TRIPLE PRESS -->
-            <LinearLayout
-                android:id="@+id/card_triple_press"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_gesture_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gesture_triple_press"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-black" />
-
-                    <TextView
-                        android:id="@+id/tv_action_triple"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/action_screenshot"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="3️⃣"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <!-- LONG PRESS -->
-            <LinearLayout
-                android:id="@+id/card_long_press"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_gesture_card"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:clickable="true"
-                android:focusable="true">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gesture_long_press"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="sans-serif-black" />
-
-                    <TextView
-                        android:id="@+id/tv_action_long"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/action_cycle_ringer"
-                        android:textSize="13sp"
-                        android:textColor="@color/text_secondary" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:gravity="center"
-                    android:text="⏱️"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- ── SECTION LABEL: ADVANCED ────────────────────────────────── -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="12dp"
-            android:text="ADVANCED"
-            android:textSize="10sp"
-            android:textColor="@color/label"
-            android:letterSpacing="0.15" />
-
-        <!-- ── HAPTIC FEEDBACK TOGGLE ─────────────────────────────────── -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_main_card"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center_vertical">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Haptic Feedback"
-                    android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="sans-serif-black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Vibrate briefly when action triggers"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_secondary" />
-            </LinearLayout>
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switch_vibrate"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true" />
-        </LinearLayout>
-        
-        <!-- Restore default button -->
-        <LinearLayout
-            android:id="@+id/btn_restore_default"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_main_card"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true">
+                android:text="SINGLE-PRESS UNLOCK"
+                android:fontFamily="@font/space_mono_regular"
+                android:textSize="12sp"
+                android:textColor="@color/label"
+                android:textAllCaps="true"
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <View
+                    android:id="@+id/indicatorUnlock"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_status_dot_red"
+                    android:layout_marginEnd="12dp" />
 
                 <TextView
+                    android:id="@+id/tvUnlockStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Restore System Default"
-                    android:textSize="15sp"
-                    android:textColor="@color/error_red"
-                    android:fontFamily="sans-serif-black" />
+                    android:text="SINGLE PRESS - LOCKED"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:textAllCaps="true"/>
+            </LinearLayout>
 
+            <Button
+                android:id="@+id/btnUnlockWizard"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_action_btn"
+                android:text="UNLOCK WIZARD"
+                android:fontFamily="@font/space_mono_bold"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Gestures Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_reference_card"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="Re-enable Nothing Essential apps via Shizuku"
+                    android:text="PROFILES"
+                    android:fontFamily="@font/space_mono_regular"
                     android:textSize="12sp"
-                    android:textColor="@color/text_secondary" />
+                    android:textColor="@color/label"
+                    android:textAllCaps="true" />
+                
+                <LinearLayout
+                    android:id="@+id/btnRemoveProfile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_action_btn"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:fontFamily="@font/space_mono_bold"
+                        android:textSize="18sp"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnAddProfile"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_action_btn"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:fontFamily="@font/space_mono_bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnProfileSelector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_action_btn"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvCurrentProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Global"
+                        android:fontFamily="@font/space_mono_bold"
+                        android:textSize="12sp"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Single Press -->
+            <LinearLayout
+                android:id="@+id/rowSinglePress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Single press"
+                    android:fontFamily="@font/space_mono_regular"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tvSingleAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Double Press -->
+            <LinearLayout
+                android:id="@+id/rowDoublePress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Double press"
+                    android:fontFamily="@font/space_mono_regular"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tvDoubleAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Triple Press -->
+            <LinearLayout
+                android:id="@+id/rowTriplePress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Triple press"
+                    android:fontFamily="@font/space_mono_regular"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tvTripleAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!-- Long Press -->
+            <LinearLayout
+                android:id="@+id/rowLongPress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingVertical="8dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Long press"
+                    android:fontFamily="@font/space_mono_regular"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/tvLongAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:fontFamily="@font/space_mono_bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Bottom safe area -->
-        <View android:layout_width="match_parent" android:layout_height="32dp" />
+        <!-- Expert Mode / Key Test Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_reference_card"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KEY EVENTS (EXPERT MODE)"
+                android:fontFamily="@font/space_mono_regular"
+                android:textSize="12sp"
+                android:textColor="@color/label"
+                android:textAllCaps="true"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvKeyEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Waiting for key press..."
+                android:fontFamily="@font/space_mono_regular"
+                android:textSize="14sp"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
