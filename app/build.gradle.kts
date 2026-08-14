@@ -15,10 +15,23 @@ android {
         versionName = "2.0"
     }
 
+    signingConfigs {
+        create("release") {
+            val localProps = java.util.Properties().apply {
+                val file = rootProject.file("local.properties")
+                if (file.exists()) load(file.inputStream())
+            }
+            storeFile = file("${rootProject.projectDir}/${localProps.getProperty("RELEASE_STORE_FILE", "release-keystore.jks")}")
+            storePassword = localProps.getProperty("RELEASE_STORE_PASSWORD", "")
+            keyAlias = localProps.getProperty("RELEASE_KEY_ALIAS", "")
+            keyPassword = localProps.getProperty("RELEASE_KEY_PASSWORD", "")
+        }
+    }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }

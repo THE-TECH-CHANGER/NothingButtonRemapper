@@ -1,0 +1,19 @@
+# Keystore files
+*.jks
+*.keystore
+
+# Built APKs
+*.apk
+
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
