@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -11,15 +14,16 @@ android {
         applicationId = "com.nothing.remapper"
         minSdk = 29
         targetSdk = 34
-        versionCode = 4
-        versionName = "2.0"
+        versionCode = 5
+        versionName = "2.2"
     }
 
     signingConfigs {
         create("release") {
-            val localProps = java.util.Properties().apply {
-                val file = rootProject.file("local.properties")
-                if (file.exists()) load(file.inputStream())
+            val localProps = Properties()
+            val propFile = rootProject.file("local.properties")
+            if (propFile.exists()) {
+                FileInputStream(propFile).use { localProps.load(it) }
             }
             storeFile = file("${rootProject.projectDir}/${localProps.getProperty("RELEASE_STORE_FILE", "release-keystore.jks")}")
             storePassword = localProps.getProperty("RELEASE_STORE_PASSWORD", "")

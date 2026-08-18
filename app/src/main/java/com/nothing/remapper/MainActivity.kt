@@ -229,6 +229,8 @@ class MainActivity : AppCompatActivity() {
                 }
             } else if (type == "keycode" && action != null) {
                 "Keycode $action"
+            } else if (action == "cycle_ringer") {
+                "Cycle Ringer (Sound / Vibrate / Mute)"
             } else {
                 action?.replace("_", " ")?.replaceFirstChar { it.uppercase() } ?: "None"
             }
@@ -483,7 +485,7 @@ class MainActivity : AppCompatActivity() {
 
         // Built-in Actions
         val builtinActions = listOf(
-            "none", "flashlight", "screenshot", "camera", 
+            "none", "cycle_ringer", "flashlight", "screenshot", "camera", 
             "media_play_pause", "media_next", "media_previous", 
             "home", "back", "recents", "lock_screen", 
             "volume_up", "volume_down", 
@@ -494,7 +496,11 @@ class MainActivity : AppCompatActivity() {
         
         for ((index, actionName) in builtinActions.withIndex()) {
             val itemView = layoutInflater.inflate(R.layout.item_action, llBuiltIn, false) as TextView
-            itemView.text = actionName.replace("_", " ").replaceFirstChar { c -> c.uppercase() }
+            itemView.text = if (actionName == "cycle_ringer") {
+                "Cycle Ringer (Sound ➡️ Vibrate ➡️ Mute)"
+            } else {
+                actionName.replace("_", " ").replaceFirstChar { c -> c.uppercase() }
+            }
             itemView.setOnClickListener {
                 prefs.edit()
                     .putString("${gestureKey}_type", "builtin")

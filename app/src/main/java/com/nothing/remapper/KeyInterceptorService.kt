@@ -13,6 +13,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.PowerManager
 import android.os.SystemClock
+import android.provider.Settings
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.widget.Toast
@@ -238,6 +239,7 @@ class KeyInterceptorService : AccessibilityService() {
 
         // Built-in actions
         when (action) {
+            "cycle_ringer" -> cycleRingerMode()
             "flashlight" -> toggleFlashlight()
             "screenshot" -> performGlobalAction(GLOBAL_ACTION_TAKE_SCREENSHOT)
             "camera" -> launchCamera()
@@ -254,6 +256,49 @@ class KeyInterceptorService : AccessibilityService() {
             "split_screen" -> performGlobalAction(GLOBAL_ACTION_TOGGLE_SPLIT_SCREEN)
             "volume_up" -> adjustVolume(AudioManager.ADJUST_RAISE)
             "volume_down" -> adjustVolume(AudioManager.ADJUST_LOWER)
+        }
+    }
+
+    private fun cycleRingerMode() {
+        try {
+            val audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
+
+            // Check if DND access is required when switching into/out of silent mode
+            val hasDndPermission = android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N || notificationManager.isNotificationPolicyAccessGranted
+
+            val currentMode = audioManager.ringerMode
+            val nextMode = when (currentMode) {
+                AudioManager.RINGER_MODE_NORMAL -> AudioManager.RINGER_MODE_VIBRATE
+                AudioManager.RINGER_MODE_VIBRATE -> {
+                    if (hasDndPermission) AudioManager.RINGER_MODE_SILENT else AudioManager.RINGER_MODE_NORMAL
+                }
+                AudioManager.RINGER_MODE_SILENT -> AudioManager.RINGER_MODE_NORMAL
+                else -> AudioManager.RINGER_MODE_NORMAL
+            }
+
+            try {
+                audioManager.ringerMode = nextMode
+            } catch (e: SecurityException) {
+                if (!hasDndPermission) {
+                    val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    startActivity(intent)
+                    Toast.makeText(this, "Grant Do Not Disturb permission to cycle silent mode", Toast.LENGTH_LONG).show()
+                }
+                return
+            }
+
+            val modeName = when (nextMode) {
+                AudioManager.RINGER_MODE_NORMAL -> "Normal (Sound)"
+                AudioManager.RINGER_MODE_VIBRATE -> "Vibrate"
+                AudioManager.RINGER_MODE_SILENT -> "Mute / Silent"
+                else -> "Normal"
+            }
+            Toast.makeText(this, "Ringer: $modeName", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

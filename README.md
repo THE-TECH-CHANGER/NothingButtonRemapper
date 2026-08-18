@@ -34,7 +34,7 @@ Welcome to **Nothing Button Remapper V2**! This open-source app allows you to co
 Because Nothing OS heavily guards the Essential Key, you need to disable the default system app that handles it. This takes 1 minute and **does not require root or void your warranty**.
 
 ### Quick Setup (Directly in the App)
-1. Download the latest `NothingButtonRemapper-v2.0.apk` from the [Releases](https://github.com/THE-TECH-CHANGER/NothingButtonRemapper/releases) page and install it.
+1. Download the latest `NothingButtonRemapper-v2.2.apk` from the [Releases](https://github.com/THE-TECH-CHANGER/NothingButtonRemapper/releases) page and install it.
 2. Open the **Nothing Button Remapper** app.
 3. Follow the 3-step setup guide on the home screen:
    - **Step 1:** Download and install [Shizuku](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).
